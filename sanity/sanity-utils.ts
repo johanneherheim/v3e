@@ -9,7 +9,8 @@ export async function getPages(): Promise<Page[]> {
         _createdAt,
         title,
         "slug": slug.current,
-    }`
+    }`,
+    { options: { cache: "no-store" } }
   );
 }
 
@@ -22,6 +23,7 @@ export async function getPage(slug: string): Promise<Page> {
         "slug": slug.current,
         content
     }`,
-    { slug }
+    { slug },
+    { cache: "no-store" }
   );
 }
