@@ -34,7 +34,7 @@ function MobileNavigation({ pages, closeMenu }: MobileNavigationProps) {
     closeMenu();
   };
   return (
-    <div className="grid grid-cols-2 gap-6 p-6 mx-auto text-center">
+    <div className="grid grid-cols-2 gap-6 p-6 mx-auto text-center bg-muted">
       {pages.map((page) => (
         <Link href={`/${page.slug}`} key={page._id} className="hover:underline">
           <p onClick={handleLinkClick}>{page.title}</p>
