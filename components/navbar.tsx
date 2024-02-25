@@ -54,7 +54,7 @@ export default function NavBar({ pages }: NavigationProps) {
   };
   return (
     <>
-      <div className="flex border-b sticky top-0 p-2 md:px-5 bg-inherit h-16">
+      <div className="flex border-b sticky top-0 p-2 md:px-5 bg-background z-50 h-16">
         <div className="flex justify-between w-full">
           <Link href="/" className="my-auto mx-3">
             <h1 className="hidden lg:block text-2xl font-medium tracking-wider">
