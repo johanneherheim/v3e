@@ -13,7 +13,11 @@ export default function Home() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0"></div>
+        <div className="absolute inset-0">
+          <div className="absolute bottom-0 right-0 p-4 text-muted">
+            <p>Foto: Bjørn Sandnes</p>
+          </div>
+        </div>
       </div>
       <div className="absolute bg-white bg-opacity-70 p-4 sm:p-5 rounded top-40 sm:top-24">
         <h1 className="text-center text-2xl ">Velkommen til Voss 3-etappars</h1>
