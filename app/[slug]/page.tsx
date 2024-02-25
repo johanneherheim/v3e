@@ -8,8 +8,8 @@ type Props = {
 export default async function Page({ params }: Props) {
   const page = await getPage(params.slug);
   return (
-    <div className="px-10 py-20 max-w-5xl mx-auto">
-      <h1 className="text-4xl py-2 font-bold min-h-screen">{page.title}</h1>
+    <div className="px-10 py-20 max-w-5xl mx-auto min-h-screen">
+      <h1 className="text-4xl py-2 font-bold ">{page.title}</h1>
       <div className="text-lg text-gray-700 mt-5">
         <PortableText value={page.content} />
       </div>
