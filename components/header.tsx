@@ -1,7 +1,7 @@
 import { getPages } from "@/sanity/sanity-utils";
-import SiteHeader from "./site-header";
+import NavBar from "./navbar";
 
 export default async function Header() {
   const pages = await getPages();
-  return <SiteHeader pages={pages} />;
+  return <NavBar pages={pages} />;
 }
