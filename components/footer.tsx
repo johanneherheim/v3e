@@ -31,7 +31,7 @@ async function FooterSection({ params }: Props) {
 export default async function Footer() {
   const footers = await getFooters();
   return (
-    <div className="flex p-10 flex-col sm:flex-row justify-between bg-muted">
+    <div className="flex p-10 gap-10 flex-col sm:flex-row justify-between bg-muted">
       {footers.map((footer) => (
         <FooterSection key={footer._id} params={{ slug: footer.slug }} />
       ))}
