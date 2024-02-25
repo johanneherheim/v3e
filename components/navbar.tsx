@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { Cross1Icon, HamburgerMenuIcon, HomeIcon } from "@radix-ui/react-icons";
 
 import { Button } from "./ui/button";
 import { Page } from "@/types/Page";
@@ -16,15 +16,15 @@ interface MobileNavigationProps extends NavigationProps {
 
 function DesktopNavigation({ pages }: NavigationProps) {
   return (
-    <div className="flex items-center gap-5 text-gray-600">
-      <Link href={"/"} className="hover:underline">
-        Heim
-      </Link>
+    <div className="flex items-center gap-8 text-gray-600">
       {pages.map((page) => (
         <Link href={`/${page.slug}`} key={page._id} className="hover:underline">
           {page.title}
         </Link>
       ))}
+      <Link href={"/"} className="hover:underline">
+        <HomeIcon className="scale-150" />
+      </Link>
     </div>
   );
 }
@@ -54,13 +54,13 @@ export default function NavBar({ pages }: NavigationProps) {
   };
   return (
     <>
-      <div className="flex border-b sticky top-0 bg-inherit h-16">
+      <div className="flex border-b sticky top-0 p-2 md:px-5 bg-inherit h-16">
         <div className="flex justify-between w-full">
           <Link href="/" className="my-auto mx-3">
-            <h1 className="hidden lg:block font-medium tracking-wider">
-              Voss 3-etappers
+            <h1 className="hidden lg:block text-2xl font-medium tracking-wider">
+              VOSS 3-ETAPPARS
             </h1>
-            <h1 className="block lg:hidden font-medium">V3E</h1>
+            <h1 className="block lg:hidden text-2xl">V3E</h1>
           </Link>
           <div className="p-2 my-auto hidden gap-4 sm:flex">
             <DesktopNavigation pages={pages} />
