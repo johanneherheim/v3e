@@ -28,7 +28,9 @@ export default function Page({ params }: Props) {
   }, [params.slug]);
 
   if (!page) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen my-20 flex justify-center">Loading...</div>
+    );
   }
 
   return (
@@ -44,8 +46,8 @@ export default function Page({ params }: Props) {
               key={image.asset._id}
               src={image.asset.url}
               alt={image.alt}
-              width={800}
-              height={800}
+              width={2000}
+              height={2000}
               className="my-5"
             />
           ))}
