@@ -58,7 +58,7 @@ export default function NavBar({ pages }: NavigationProps) {
         <div className="flex justify-between w-full">
           <Link href="/" className="my-auto mx-3">
             <h1 className="hidden lg:block text-2xl font-medium tracking-wider">
-              VOSS 3-ETAPPARS
+              VOSS 3-ETAPPARS (V3E)
             </h1>
             <h1 className="block lg:hidden text-2xl">V3E</h1>
           </Link>
