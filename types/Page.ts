@@ -6,4 +6,11 @@ export type Page = {
   title: string;
   slug: string;
   content: PortableTextBlock[];
+  images: {
+    asset: {
+      _id: string;
+      url: string;
+    };
+    alt: string;
+  }[];
 };
