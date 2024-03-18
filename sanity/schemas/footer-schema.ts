@@ -5,7 +5,7 @@ const footer = {
   fields: [
     {
       name: "title",
-      title: "Title",
+      title: "Tittel",
       type: "string",
     },
     {
@@ -19,7 +19,7 @@ const footer = {
     },
     {
       name: "content",
-      title: "Content",
+      title: "Innhald",
       type: "array",
       of: [{ type: "block" }],
     },

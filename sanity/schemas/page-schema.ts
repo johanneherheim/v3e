@@ -2,12 +2,12 @@ import { Rule } from "sanity";
 
 const page = {
   name: "page",
-  title: "Pages",
+  title: "Sider",
   type: "document",
   fields: [
     {
       name: "title",
-      title: "Title",
+      title: "Tittel",
       type: "string",
       validation: (Rule: Rule) => Rule.required(),
     },
@@ -23,7 +23,7 @@ const page = {
     },
     {
       name: "images",
-      title: "Images",
+      title: "Bilete",
       type: "array",
       of: [
         {
@@ -34,7 +34,7 @@ const page = {
           fields: [
             {
               name: "alt",
-              title: "Alt",
+              title: "Skildring av biletet",
               type: "string",
             },
           ],
@@ -43,7 +43,7 @@ const page = {
     },
     {
       name: "content",
-      title: "Content",
+      title: "Innhald",
       type: "array",
       of: [{ type: "block" }],
       validation: (Rule: Rule) => Rule.required(),
