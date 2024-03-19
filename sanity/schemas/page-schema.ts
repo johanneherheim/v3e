@@ -42,6 +42,14 @@ const page = {
       ],
     },
     {
+      name: "pdf",
+      title: "PDF-fil",
+      type: "file",
+      options: {
+        accept: ".pdf",
+      },
+    },
+    {
       name: "content",
       title: "Innhald",
       type: "markdown",

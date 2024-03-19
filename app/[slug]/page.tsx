@@ -30,6 +30,12 @@ export default async function Page({ params }: Props) {
               />
             ))}
         </div>
+        {page.pdf && (
+          <iframe
+            src={page.pdf.asset.url}
+            className="w-full h-64 mt-5 border-none"
+          ></iframe>
+        )}
       </div>
     </article>
   );

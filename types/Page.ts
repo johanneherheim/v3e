@@ -12,5 +12,10 @@ export type Page = {
     };
     alt: string;
   }[];
+  pdf: {
+    asset: {
+      url: string;
+    };
+  };
   content: string;
 };
