@@ -73,4 +73,13 @@
   body {
     @apply bg-background text-foreground;
   }
+  td {
+    @apply border px-4 py-2;
+  }
+  th {
+    @apply px-4 py-2 bg-muted border font-bold;
+  }
+  thead {
+    @apply bg-gray-100;
+  }
 }
