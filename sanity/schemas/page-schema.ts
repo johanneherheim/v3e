@@ -53,6 +53,7 @@ const page = {
       name: "content",
       title: "Innhald",
       type: "markdown",
+      validation: (Rule: Rule) => Rule.required(),
     },
   ],
 };
