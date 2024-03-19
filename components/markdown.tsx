@@ -21,7 +21,7 @@ export function Markdown({ className, content }: MarkdownProps) {
   }
 
   return (
-    <div className={cn("max-w-3xl space-y-4", className)}>
+    <div className={cn("max-w-3xl space-y-4 text-black", className)}>
       <ReactMarkdown
         components={{
           h1: ({ children }) => {

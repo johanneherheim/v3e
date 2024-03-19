@@ -44,9 +44,7 @@ const page = {
     {
       name: "content",
       title: "Innhald",
-      type: "array",
-      of: [{ type: "block" }],
-      validation: (Rule: Rule) => Rule.required(),
+      type: "markdown",
     },
   ],
 };

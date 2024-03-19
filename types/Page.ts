@@ -5,7 +5,6 @@ export type Page = {
   _createdAt: Date;
   title: string;
   slug: string;
-  content: PortableTextBlock[];
   images: {
     asset: {
       _id: string;
@@ -13,4 +12,5 @@ export type Page = {
     };
     alt: string;
   }[];
+  content: string;
 };
