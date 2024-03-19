@@ -14,7 +14,6 @@ export default async function Page({ params }: Props) {
   return (
     <article>
       <div className="px-10 py-20 max-w-5xl mx-auto min-h-screen">
-        <h1 className="text-4xl py-2 font-bold ">{page.title}</h1>
         <div className="text-lg text-gray-700 mt-5">
           <Markdown content={page.content} />
         </div>
