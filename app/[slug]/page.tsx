@@ -12,10 +12,8 @@ type Props = {
 export default async function Page({ params }: Props) {
   const page = await getPage(params.slug);
   return (
-    <div className="px-10 py-20 max-w-5xl mx-auto min-h-screen">
-      <div className="text-lg text-gray-700 mt-5">
-        <Markdown content={page.content} />
-      </div>
+    <div className="px-3 py-20 max-w-5xl mx-auto min-h-screen">
+      <Markdown content={page.content} />
       <div>
         {page.images &&
           page.images.map((image) => (
@@ -31,7 +29,7 @@ export default async function Page({ params }: Props) {
       </div>
       {page.pdf && (
         <iframe
-          title="echo-brosjyre"
+          title="rittmanual"
           style={{
             width: "100%",
             height: "800px",
@@ -41,6 +39,13 @@ export default async function Page({ params }: Props) {
           }
         ></iframe>
       )}
+      {/* <iframe
+        src="https://ridewithgps.com/embeds?type=route&id=38570533&metricUnits=true&sampleGraph=true"
+        style={{
+          width: "100%",
+          height: "800px",
+        }}
+      ></iframe> */}
     </div>
   );
 }
