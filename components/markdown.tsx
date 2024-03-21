@@ -60,13 +60,48 @@ export function Markdown({ className, content }: MarkdownProps) {
             );
           },
           ul: ({ children }) => {
-            return <UnorderedList>{children}</UnorderedList>;
+            return (
+              <UnorderedList className="text-md sm:text-lg">
+                {children}
+              </UnorderedList>
+            );
           },
           ol: ({ children }) => {
-            return <OrderedList>{children}</OrderedList>;
+            return (
+              <OrderedList className="text-md sm:text-lg">
+                {children}
+              </OrderedList>
+            );
           },
           li: ({ children }) => {
-            return <ListItem>{children}</ListItem>;
+            return (
+              <ListItem className="text-md sm:text-lg">{children}</ListItem>
+            );
+          },
+          table: ({ children }) => {
+            return (
+              <div
+                style={{
+                  width: "100%",
+                  overflowX: "auto",
+                  border: "1px solid #ccc",
+                }}
+              >
+                <table style={{ width: "100%" }}>{children}</table>
+              </div>
+            );
+          },
+          td: ({ children }) => {
+            return (
+              <td className="border border-gray-300 p-2 text-sm sm:text-lg">
+                {children}
+              </td>
+            );
+          },
+          tr: ({ children }) => {
+            return (
+              <tr className="bg-gray-50 text-sm sm:text-lg">{children}</tr>
+            );
           },
           a: ({ children, href }) => {
             const isExternal = href?.startsWith("http");
