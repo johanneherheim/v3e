@@ -80,13 +80,7 @@ export function Markdown({ className, content }: MarkdownProps) {
           },
           table: ({ children }) => {
             return (
-              <div
-                style={{
-                  width: "100%",
-                  overflowX: "auto",
-                  border: "1px solid #ccc",
-                }}
-              >
+              <div className="table-responsive overflow-x-auto">
                 <table style={{ width: "100%" }}>{children}</table>
               </div>
             );
@@ -99,9 +93,7 @@ export function Markdown({ className, content }: MarkdownProps) {
             );
           },
           tr: ({ children }) => {
-            return (
-              <tr className="bg-gray-50 text-sm sm:text-lg">{children}</tr>
-            );
+            return <tr className="text-sm sm:text-lg">{children}</tr>;
           },
           a: ({ children, href }) => {
             const isExternal = href?.startsWith("http");
