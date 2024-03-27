@@ -96,7 +96,12 @@ export function Markdown({ className, content }: MarkdownProps) {
             return <tr className="text-sm sm:text-lg">{children}</tr>;
           },
           a: ({ children, href }) => {
+            const isRideWithGPS = href?.startsWith("https://ridewithgps.com");
+            const isStravaMap = href?.startsWith(
+              "https://www.strava.com/routes/"
+            );
             const isExternal = href?.startsWith("http");
+
             const classNames = cn(
               "transition-colors underline font-medium duration-200 after:content-['_↗'] hover:text-blue-500",
               {
@@ -104,7 +109,27 @@ export function Markdown({ className, content }: MarkdownProps) {
               }
             );
 
-            if (isExternal) {
+            if (isRideWithGPS) {
+              return (
+                <iframe
+                  src={href}
+                  style={{
+                    width: "100%",
+                    height: "800px",
+                  }}
+                ></iframe>
+              );
+            } else if (isStravaMap) {
+              return (
+                <iframe
+                  src={href}
+                  style={{
+                    width: "100%",
+                    height: "800px",
+                  }}
+                ></iframe>
+              );
+            } else if (isExternal) {
               return (
                 <a
                   className={classNames}
