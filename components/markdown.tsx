@@ -101,10 +101,7 @@ export function Markdown({ className, content }: MarkdownProps) {
             const isStrava = href?.includes("strava");
 
             const classNames = cn(
-              "transition-colors underline font-medium duration-200 after:content-['_↗'] hover:text-blue-500",
-              {
-                "after:content-['_↗']": isExternal,
-              }
+              "transition-colors underline font-medium duration-200 after:content-['_↗︎'] hover:text-blue-500"
             );
             if (isMap) {
               return (

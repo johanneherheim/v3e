@@ -3,6 +3,7 @@ import { getGalleries, getPage } from "@/sanity/sanity-utils";
 import Image from "next/image";
 import { type Page } from "@/types/Page";
 import Link from "next/link";
+import { MoveUpRight } from "lucide-react";
 
 type Props = {
   params: { slug: string };
@@ -30,9 +31,12 @@ export default async function Page({ params }: Props) {
             <Link
               href={`/galleri/${gallery.slug}`}
               key={gallery._id}
-              className="flex flex-row mt-5 transition-colors underline font-medium duration-200 after:content-['_↗'] hover:text-blue-500"
+              className="flex flex-row mt-5 transition-colors underline font-medium duration-200 hover:text-blue-500"
             >
-              {gallery.title + ""}
+              <span>{gallery.title}</span>
+              <span>
+                <MoveUpRight className="size-4 mt-[5px]" />
+              </span>
             </Link>
           ))}
         {page.images &&
