@@ -96,10 +96,7 @@ export function Markdown({ className, content }: MarkdownProps) {
             return <tr className="text-sm sm:text-lg">{children}</tr>;
           },
           a: ({ children, href }) => {
-            const isRideWithGPS = href?.startsWith("https://ridewithgps.com");
-            const isStravaMap = href?.startsWith(
-              "https://www.strava.com/routes/"
-            );
+            const isMap = children?.toString().toLowerCase().startsWith("kart");
             const isExternal = href?.startsWith("http");
 
             const classNames = cn(
@@ -108,24 +105,13 @@ export function Markdown({ className, content }: MarkdownProps) {
                 "after:content-['_↗']": isExternal,
               }
             );
-
-            if (isRideWithGPS) {
+            if (isMap) {
               return (
                 <iframe
                   src={href}
                   style={{
                     width: "100%",
-                    height: "800px",
-                  }}
-                ></iframe>
-              );
-            } else if (isStravaMap) {
-              return (
-                <iframe
-                  src={href}
-                  style={{
-                    width: "100%",
-                    height: "800px",
+                    height: "400px",
                   }}
                 ></iframe>
               );
