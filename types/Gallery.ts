@@ -1,4 +1,4 @@
-export type Page = {
+export type Gallery = {
   _id: string;
   _createdAt: Date;
   title: string;
@@ -10,10 +10,5 @@ export type Page = {
     };
     alt: string;
   }[];
-  pdf: {
-    asset: {
-      url: string;
-    };
-  };
   content: string;
 };
