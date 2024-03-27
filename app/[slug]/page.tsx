@@ -16,15 +16,12 @@ export default async function Page({ params }: Props) {
       {page.content ? (
         <Markdown content={page.content} />
       ) : (
-        <div className="flex w-fit flex-col gap-8 my-10">
+        <div className="flex flex-col gap-8 my-10">
           <h3 className="text-xl font-medium">Ingenting her enda ...</h3>
           <iframe
             src="https://giphy.com/embed/IsYt1rfEu0Zv1FjK19"
-            width="480"
-            height="269"
-            className="giphy-embed"
-            allowFullScreen
-          ></iframe>
+            className=" sm:w-[480px] sm:h-[269px]"
+          />
         </div>
       )}
       <div>
