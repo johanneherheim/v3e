@@ -45,6 +45,9 @@ export function Markdown({ className, content }: MarkdownProps) {
           p: ({ children }) => {
             return <Text>{children}</Text>;
           },
+          br: () => {
+            return <br />;
+          },
           code: ({ children }) => {
             return (
               <code className="rounded bg-gray-200 px-1 py-0.5 font-mono text-gray-700 dark:bg-wave dark:text-gray-100">
