@@ -2,6 +2,7 @@ import { getGallery } from "@/sanity/sanity-utils";
 import { Markdown } from "@/components/markdown";
 import { Heading } from "@/components/typography/heading";
 import ImageComponent from "@/components/ImageDownload";
+import Image from "next/image";
 
 type Props = {
   params: { slug: string };
@@ -26,7 +27,16 @@ export default async function Page({ params }: Props) {
           {gallery.content ? (
             <Markdown content={gallery.content} />
           ) : (
-            <p className="my-10">Her vil bileta av rittet dukka opp.</p>
+            <div className="flex w-fit flex-col gap-8 my-10">
+              <h3 className="text-xl font-medium">Ingenting her enda ...</h3>
+              <iframe
+                src="https://giphy.com/embed/IsYt1rfEu0Zv1FjK19"
+                width="480"
+                height="269"
+                className="giphy-embed"
+                allowFullScreen
+              ></iframe>
+            </div>
           )}
           <div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
