@@ -98,6 +98,7 @@ export function Markdown({ className, content }: MarkdownProps) {
           a: ({ children, href }) => {
             const isMap = children?.toString().toLowerCase().startsWith("kart");
             const isExternal = href?.startsWith("http");
+            const isStrava = href?.includes("strava");
 
             const classNames = cn(
               "transition-colors underline font-medium duration-200 after:content-['_↗'] hover:text-blue-500",
@@ -118,7 +119,7 @@ export function Markdown({ className, content }: MarkdownProps) {
             } else if (isExternal) {
               return (
                 <a
-                  className={classNames}
+                  className={cn(classNames, isStrava && "text-orange-600")}
                   href={href ?? ""}
                   target="_blank"
                   rel="noopener noreferrer"
