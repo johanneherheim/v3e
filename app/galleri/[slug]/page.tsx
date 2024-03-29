@@ -1,6 +1,5 @@
 import { getGallery } from "@/sanity/sanity-utils";
 import { Markdown } from "@/components/markdown";
-import { Heading } from "@/components/typography/heading";
 import ImageComponent from "@/components/ImageDownload";
 import Image from "next/image";
 
@@ -21,7 +20,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className="px-5 sm:px-3 py-20 max-w-5xl mx-auto min-h-screen">
-      <Heading level={1}>{gallery.title}</Heading>
+      <h1>{gallery.title}</h1>
       {gallery && (
         <>
           {gallery.content ? (

@@ -9,7 +9,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Voss 3-etappars",
-  description: "Made with NextJS and Sanity",
+  description:
+    "🚴 Nettsida for sykkelrittet Voss 3-etappars, laga med NextJS og Sanity.",
 };
 
 export default function RootLayout({

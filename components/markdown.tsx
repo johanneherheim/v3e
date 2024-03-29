@@ -3,11 +3,6 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-import { Heading } from "./typography/heading";
-import { OrderedList, UnorderedList } from "./typography/list";
-import { ListItem } from "./typography/list-item";
-import { Text } from "./typography/text";
-
 import { cn } from "@/lib/utils";
 
 type MarkdownProps = {
@@ -24,33 +19,18 @@ export function Markdown({ className, content }: MarkdownProps) {
     <div className={cn("max-w-3xl space-y-4 text-black", className)}>
       <ReactMarkdown
         components={{
-          h1: ({ children }) => {
-            return <Heading level={1}>{children}</Heading>;
-          },
-          h2: ({ children }) => {
-            return <Heading level={2}>{children}</Heading>;
-          },
-          h3: ({ children }) => {
-            return <Heading level={3}>{children}</Heading>;
-          },
-          h4: ({ children }) => {
-            return <Text className="font-bold">{children}</Text>;
-          },
-          h5: ({ children }) => {
-            return <Text className="font-bold">{children}</Text>;
-          },
-          h6: ({ children }) => {
-            return <Text className="font-bold">{children}</Text>;
-          },
-          p: ({ children }) => {
-            return <Text>{children}</Text>;
-          },
           br: () => {
             return <br />;
           },
+          h1: ({ children }) => {
+            return <h1 className="mb-10">{children}</h1>;
+          },
+          h2: ({ children }) => {
+            return <h2 className="pt-10 pb-2">{children}</h2>;
+          },
           code: ({ children }) => {
             return (
-              <code className="rounded bg-gray-200 px-1 py-0.5 font-mono text-gray-700 dark:bg-wave dark:text-gray-100">
+              <code className="rounded bg-gray-100 px-1 py-0.5 font-mono">
                 {children}
               </code>
             );
@@ -62,25 +42,6 @@ export function Markdown({ className, content }: MarkdownProps) {
               </blockquote>
             );
           },
-          ul: ({ children }) => {
-            return (
-              <UnorderedList className="text-md sm:text-lg">
-                {children}
-              </UnorderedList>
-            );
-          },
-          ol: ({ children }) => {
-            return (
-              <OrderedList className="text-md sm:text-lg">
-                {children}
-              </OrderedList>
-            );
-          },
-          li: ({ children }) => {
-            return (
-              <ListItem className="text-md sm:text-lg">{children}</ListItem>
-            );
-          },
           table: ({ children }) => {
             return (
               <div className="table-responsive overflow-x-auto">
@@ -88,20 +49,12 @@ export function Markdown({ className, content }: MarkdownProps) {
               </div>
             );
           },
-          td: ({ children }) => {
-            return (
-              <td className="border border-gray-300 p-2 text-sm sm:text-lg">
-                {children}
-              </td>
-            );
-          },
-          tr: ({ children }) => {
-            return <tr className="text-sm sm:text-lg">{children}</tr>;
-          },
           a: ({ children, href }) => {
             const isMap = children?.toString().toLowerCase().startsWith("kart");
             const isExternal = href?.startsWith("http");
             const isStrava = href?.includes("strava");
+            const isFaceBook = href?.includes("facebook");
+            const isEQ = href?.includes("eqtiming");
 
             const classNames = cn(
               "transition-colors underline font-medium duration-200 after:content-['_↗︎'] hover:text-blue-500"
@@ -119,7 +72,12 @@ export function Markdown({ className, content }: MarkdownProps) {
             } else if (isExternal) {
               return (
                 <a
-                  className={cn(classNames, isStrava && "text-orange-600")}
+                  className={cn(
+                    classNames,
+                    isStrava && "text-orange-600 hover:text-orange-800",
+                    isFaceBook && "text-blue-600 hover:text-blue-800",
+                    isEQ && "text-green-600 hover:text-green-800"
+                  )}
                   href={href ?? ""}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -147,7 +105,7 @@ export function Markdown({ className, content }: MarkdownProps) {
             );
           },
           hr: () => {
-            return <hr className="my-8 border-t-gray-300" />;
+            return <hr className="my-8" />;
           },
         }}
         remarkPlugins={[remarkGfm]}

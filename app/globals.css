@@ -74,12 +74,36 @@
     @apply bg-background text-foreground;
   }
   td {
-    @apply border px-4 py-2;
+    @apply border p-2 text-sm sm:text-base;
   }
   th {
-    @apply px-4 py-2 bg-muted border font-bold;
+    @apply border p-2 text-sm sm:text-base bg-gray-100;
   }
-  thead {
-    @apply bg-gray-100;
+  h1{
+    @apply text-3xl sm:text-4xl font-semibold tracking-tight;
+  }
+  h2{
+    @apply text-2xl mb-5 sm:text-3xl font-semibold tracking-tight;
+  }
+  h3{
+    @apply text-xl mb-3 sm:text-2xl font-semibold tracking-tight;
+  }
+  h4{
+    @apply text-lg sm:text-xl font-semibold tracking-tight;
+  }
+  h5{
+    @apply text-base sm:text-lg  font-semibold tracking-tight;
+  }
+  p{
+    @apply text-sm sm:text-base;
+  }
+  ol{
+    @apply list-decimal space-y-1 pl-8 leading-relaxed;
+  }
+  ul{
+    @apply list-disc space-y-1 pl-8 leading-relaxed;
+  }
+  li{
+    @apply text-sm sm:text-base;
   }
 }

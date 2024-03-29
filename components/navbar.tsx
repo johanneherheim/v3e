@@ -1,17 +1,19 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Cross1Icon, HamburgerMenuIcon, HomeIcon } from "@radix-ui/react-icons";
+import { HamburgerMenuIcon, HomeIcon } from "@radix-ui/react-icons";
 
-import { Button } from "./ui/button";
 import { Page } from "@/types/Page";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTrigger,
+} from "./ui/sheet";
 
 interface NavigationProps {
   pages: Page[];
-}
-
-interface MobileNavigationProps extends NavigationProps {
-  closeMenu: () => void;
 }
 
 function DesktopNavigation({ pages }: NavigationProps) {
@@ -28,29 +30,11 @@ function DesktopNavigation({ pages }: NavigationProps) {
     </div>
   );
 }
-
-function MobileNavigation({ pages, closeMenu }: MobileNavigationProps) {
-  const handleLinkClick = () => {
-    closeMenu();
-  };
-  return (
-    <div className="grid grid-cols-2 gap-6 p-6 mx-auto text-center bg-muted">
-      {pages.map((page) => (
-        <Link href={`/${page.slug}`} key={page._id} className="hover:underline">
-          <p onClick={handleLinkClick}>{page.title}</p>
-        </Link>
-      ))}
-    </div>
-  );
-}
-
 export default function NavBar({ pages }: NavigationProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMobileMenu = () => {
-    setIsOpen(!isOpen);
-  };
-  const closeMobileMenu = () => {
-    setIsOpen(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setIsSheetOpen(false); // Close the sheet when link is clicked
   };
   return (
     <>
@@ -66,23 +50,33 @@ export default function NavBar({ pages }: NavigationProps) {
             <DesktopNavigation pages={pages} />
           </div>
         </div>
-        <div className="flex-grow flex justify-end items-center">
-          <div className="flex sm:hidden">
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={toggleMobileMenu}
-              className="m-2"
-            >
-              {isOpen ? <Cross1Icon /> : <HamburgerMenuIcon />}
-            </Button>
-          </div>
+        <div className="sm:hidden block">
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+            <SheetTrigger onClick={() => setIsSheetOpen(true)}>
+              <div className="border rounded-sm p-2 m-1">
+                <HamburgerMenuIcon className=" scale-125" />
+              </div>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetDescription>
+                  <div className="flex flex-col gap-10 mt-20">
+                    {pages.map((page) => (
+                      <Link
+                        href={`/${page.slug}`}
+                        key={page._id}
+                        onClick={handleLinkClick}
+                        className="hover:underline text-2xl"
+                      >
+                        {page.title}
+                      </Link>
+                    ))}
+                  </div>
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
         </div>
-      </div>
-      <div>
-        {isOpen && (
-          <MobileNavigation pages={pages} closeMenu={closeMobileMenu} />
-        )}
       </div>
     </>
   );
