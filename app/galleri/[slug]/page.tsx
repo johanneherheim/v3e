@@ -27,7 +27,7 @@ export default async function Page({ params }: Props) {
             <Markdown content={gallery.content} />
           ) : (
             <div className="flex flex-col gap-8 my-10">
-              <h3 className="text-xl font-medium">Ingenting her enda ...</h3>
+              <h3 className="text-xl font-medium">Ingenting her enda ... </h3>
               <iframe
                 src="https://giphy.com/embed/IsYt1rfEu0Zv1FjK19"
                 className=" sm:w-[480px] sm:h-[269px]"
