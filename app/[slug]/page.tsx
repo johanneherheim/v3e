@@ -4,17 +4,35 @@ import Image from "next/image";
 import { type Page } from "@/types/Page";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import DownloadLink from "@/components/downloadLink";
 
 type Props = {
   params: { slug: string };
 };
 
 export default async function Page({ params }: Props) {
-  const page = await getPage(params.slug);
+  const page: Page | null = await getPage(params.slug);
   const galleries = await getGalleries();
   return (
     <div className="px-3 py-20 max-w-5xl mx-auto min-h-screen">
-      {page.content ? (
+      <h1 className="text-4xl font-semibold mb-5">{page?.title}</h1>
+      {page && page.gpx && (
+        <>
+          <h5 className="mt-14">Last ned GPX-filer:</h5>
+          <div className="mb-12 grid gap-6 grid-cols-1 sm:grid-cols-4">
+            {page.gpx.map((f) => {
+              return (
+                <DownloadLink
+                  src={f.asset.url}
+                  filename={f.alt}
+                  key={f.asset.url}
+                />
+              );
+            })}
+          </div>
+        </>
+      )}
+      {page && page.content ? (
         <Markdown content={page.content} />
       ) : (
         <div className="flex flex-col gap-8 my-10">
@@ -26,8 +44,9 @@ export default async function Page({ params }: Props) {
         </div>
       )}
       <div>
-        <ul className="space-y-5">
-          {page.slug == "galleri" &&
+        <ul className="space-y-5 mt-10">
+          {page &&
+            page.slug == "galleri" &&
             galleries.map((gallery) => (
               <li key={gallery._id}>
                 <Link
@@ -40,7 +59,8 @@ export default async function Page({ params }: Props) {
               </li>
             ))}
         </ul>
-        {page.images &&
+        {page &&
+          page.images &&
           page.images.map((image) => (
             <Image
               key={image.asset._id}
