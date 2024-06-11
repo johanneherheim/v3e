@@ -1,5 +1,5 @@
 import { getFooter, getFooters, getPage } from "@/sanity/sanity-utils";
-import { PortableText } from "@portabletext/react";
+import { Markdown } from "@/components/markdown";
 
 type Props = {
   params: { slug: string };
@@ -7,11 +7,20 @@ type Props = {
 
 async function FooterSection({ params }: Props) {
   const footer = await getFooter(params.slug);
+
+  if (!footer) {
+    return (
+      <div className="flex flex-col">
+        <h3>Footer not found</h3>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col">
-      <h3>{footer.title}</h3>
+      <h3>{footer.title ?? footer.title}</h3>
       <div className="text-lg text-gray-700">
-        <PortableText value={footer.content} />
+        <Markdown content={footer.content} />
       </div>
     </div>
   );

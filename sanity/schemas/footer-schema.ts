@@ -20,8 +20,7 @@ const footer = {
     {
       name: "content",
       title: "Innhald",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "markdown",
     },
   ],
 };
