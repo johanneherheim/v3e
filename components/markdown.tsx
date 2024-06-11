@@ -3,6 +3,8 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import { DownloadIcon } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 type MarkdownProps = {
@@ -55,9 +57,13 @@ export function Markdown({ className, content }: MarkdownProps) {
             const isStrava = href?.includes("strava");
             const isFaceBook = href?.includes("facebook");
             const isEQ = href?.includes("eqtiming");
+            const isDownload = children
+              ?.toString()
+              .toLowerCase()
+              .includes("last");
 
             const classNames = cn(
-              "transition-colors underline font-medium duration-200 after:content-['_↗︎'] hover:text-blue-500"
+              "transition-colors underline font-medium duration-200 hover:text-blue-500"
             );
             if (isMap) {
               return (
@@ -69,6 +75,19 @@ export function Markdown({ className, content }: MarkdownProps) {
                   }}
                 ></iframe>
               );
+            } else if (isDownload) {
+              return (
+                <a
+                  className={cn(classNames, "items-center inline")}
+                  href={href ?? ""}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {children}
+                  <DownloadIcon className="inline ml-1 size-4" />
+                </a>
+              );
             } else if (isExternal) {
               return (
                 <a
@@ -76,7 +95,8 @@ export function Markdown({ className, content }: MarkdownProps) {
                     classNames,
                     isStrava && "text-orange-600 hover:text-orange-800",
                     isFaceBook && "text-blue-600 hover:text-blue-800",
-                    isEQ && "text-green-600 hover:text-green-800"
+                    isEQ && "text-green-600 hover:text-green-800",
+                    "after:content-['_↗︎']"
                   )}
                   href={href ?? ""}
                   target="_blank"

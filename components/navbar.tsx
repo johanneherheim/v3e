@@ -34,7 +34,7 @@ export default function NavBar({ pages }: NavigationProps) {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const handleLinkClick = () => {
-    setIsSheetOpen(false); // Close the sheet when link is clicked
+    setIsSheetOpen(false);
   };
   return (
     <>
