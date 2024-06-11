@@ -50,6 +50,26 @@ const page = {
       },
     },
     {
+      name: "gpx",
+      title: "GPX-filer",
+      type: "array",
+      of: [
+        {
+          type: "file",
+          options: {
+            accept: ".gpx",
+          },
+          fields: [
+            {
+              name: "alt",
+              title: "Skildring av GPX-filen",
+              type: "string",
+            },
+          ],
+        },
+      ],
+    },
+    {
       name: "content",
       title: "Innhald",
       type: "markdown",

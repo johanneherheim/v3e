@@ -31,6 +31,7 @@ export async function getPage(slug: string): Promise<Page> {
           alt
         },
         pdf,
+        gpx,
         content,
     }`,
     { slug },

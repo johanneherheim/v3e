@@ -15,5 +15,11 @@ export type Page = {
       url: string;
     };
   };
+  gpx: {
+    asset: {
+      url: string;
+    };
+    alt: string;
+  }[];
   content: string;
 };
