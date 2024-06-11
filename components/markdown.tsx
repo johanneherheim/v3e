@@ -55,6 +55,7 @@ export function Markdown({ className, content }: MarkdownProps) {
             const isMap = children?.toString().toLowerCase().startsWith("kart");
             const isExternal = href?.startsWith("http");
             const isStrava = href?.includes("strava");
+            const isImage = children?.toString().toLowerCase().includes("[");
             const isFaceBook = href?.includes("facebook");
             const isEQ = href?.includes("eqtiming");
             const isDownload = children
@@ -94,9 +95,11 @@ export function Markdown({ className, content }: MarkdownProps) {
                   className={cn(
                     classNames,
                     isStrava && "text-orange-600 hover:text-orange-800",
+
                     isFaceBook && "text-blue-600 hover:text-blue-800",
                     isEQ && "text-green-600 hover:text-green-800",
-                    "after:content-['_↗︎']"
+                    "after:content-['_↗︎']",
+                    isImage && "after:content-none"
                   )}
                   href={href ?? ""}
                   target="_blank"

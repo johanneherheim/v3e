@@ -17,7 +17,7 @@ async function FooterSection({ params }: Props) {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col max-w-xs">
       <h3>{footer.title ?? footer.title}</h3>
       <div className="text-lg text-gray-700">
         <Markdown content={footer.content} />
