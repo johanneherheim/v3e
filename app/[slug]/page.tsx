@@ -16,7 +16,7 @@ export default async function Page({ params }: Props) {
   return (
     <div className="px-3 py-20 max-w-5xl mx-auto min-h-screen">
       <h1 className="text-4xl font-semibold mb-5">{page?.title}</h1>
-      {page && page.gpx && (
+      {/* {page && page.gpx && (
         <>
           <h5 className="mt-14">Last ned GPX-filer:</h5>
           <div className="mb-12 grid gap-6 grid-cols-1 sm:grid-cols-4">
@@ -31,12 +31,12 @@ export default async function Page({ params }: Props) {
             })}
           </div>
         </>
-      )}
+      )} */}
       {page && page.content ? (
         <Markdown content={page.content} />
       ) : (
         <div className="flex flex-col gap-8 my-10">
-          <h3 className="text-xl font-medium">Ingenting her enda ...</h3>
+          <h3 className="text-xl font-medium">Ingenting her endå ...</h3>
           <iframe
             src="https://giphy.com/embed/IsYt1rfEu0Zv1FjK19"
             className=" sm:w-[480px] sm:h-[269px]"
