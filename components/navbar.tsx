@@ -3,7 +3,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { HamburgerMenuIcon, HomeIcon } from "@radix-ui/react-icons";
 
-import { Page } from "@/types/Page";
 import {
   Sheet,
   SheetContent,
@@ -12,16 +11,25 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 
-interface NavigationProps {
-  pages: Page[];
+interface Route {
+  name: string;
+  slug: string;
 }
 
-function DesktopNavigation({ pages }: NavigationProps) {
+interface NavigationProps {
+  routes: Route[];
+}
+
+function DesktopNavigation({ routes }: NavigationProps) {
   return (
     <div className="flex items-center gap-8 text-gray-600">
-      {pages.map((page) => (
-        <Link href={`/${page.slug}`} key={page._id} className="hover:underline">
-          {page.title}
+      {routes.map((route) => (
+        <Link
+          href={`/${route.slug}`}
+          key={route.slug}
+          className="hover:underline"
+        >
+          {route.name}
         </Link>
       ))}
       <Link href={"/"} className="hover:underline">
@@ -30,12 +38,14 @@ function DesktopNavigation({ pages }: NavigationProps) {
     </div>
   );
 }
-export default function NavBar({ pages }: NavigationProps) {
+
+export default function NavBar({ routes }: NavigationProps) {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const handleLinkClick = () => {
     setIsSheetOpen(false);
   };
+
   return (
     <>
       <div className="flex border-b sticky top-0 p-2 md:px-5 bg-background z-50 h-16">
@@ -47,7 +57,7 @@ export default function NavBar({ pages }: NavigationProps) {
             <h1 className="block lg:hidden text-2xl">V3E</h1>
           </Link>
           <div className="p-2 my-auto hidden gap-4 sm:flex">
-            <DesktopNavigation pages={pages} />
+            <DesktopNavigation routes={routes} />
           </div>
         </div>
         <div className="sm:hidden block">
@@ -61,14 +71,14 @@ export default function NavBar({ pages }: NavigationProps) {
               <SheetHeader>
                 <SheetDescription>
                   <div className="flex flex-col gap-10 mt-20">
-                    {pages.map((page) => (
+                    {routes.map((route) => (
                       <Link
-                        href={`/${page.slug}`}
-                        key={page._id}
+                        href={`/${route.slug}`}
+                        key={route.slug}
                         onClick={handleLinkClick}
                         className="hover:underline text-2xl"
                       >
-                        {page.title}
+                        {route.name}
                       </Link>
                     ))}
                   </div>
