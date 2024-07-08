@@ -21,6 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          name="viewport"
+          content="width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no"
+          className="bg-muted"
+        />
+        <meta name="apple-mobile-web-app-title" content="App name" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link
           rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚴</text></svg>"
@@ -38,6 +46,10 @@ export default function RootLayout({
           sizes="<generated>"
         />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#325758" />
+        <link rel="apple-touch-icon" href="/img/icon.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/img/icon.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/img/icon.png" />
       </head>
       <body
         className={cn(
