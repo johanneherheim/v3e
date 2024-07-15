@@ -23,4 +23,8 @@ export const routes = [
     name: "Galleri",
     slug: "galleri",
   },
+  {
+    name: "Trafikkinfo",
+    slug: "trafikkinfo",
+  },
 ];
