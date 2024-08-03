@@ -27,14 +27,15 @@ export default function Home() {
           3. – 4. august 2024
         </h1>
       </div>
-      <Link
+      {/* PÅMELDINGSKNAPP */}
+      {/* <Link
         href="https://live.eqtiming.com/71975#dashboard"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute bottom-32 sm:bottom-1/6 flex justify-center bg-black text-white rounded-lg py-5 px-10 text-xl font-semibold"
       >
         Meld deg på her
-      </Link>
+      </Link> */}
     </div>
   );
 }
