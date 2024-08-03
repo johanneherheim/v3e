@@ -21,7 +21,12 @@ export default function ImageComponent({ src, alt }: ImageProps) {
 
       const link = document.createElement("a");
       link.href = blobUrl;
-      link.setAttribute("download", alt);
+
+      // Ensure the filename has a .jpeg extension
+      const filename =
+        alt.endsWith(".jpeg") || alt.endsWith(".jpg") ? alt : `${alt}.jpeg`;
+      link.setAttribute("download", filename);
+
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
