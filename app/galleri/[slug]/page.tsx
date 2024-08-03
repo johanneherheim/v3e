@@ -19,7 +19,7 @@ export default async function Page({ params }: Props) {
   const gallery = await getGallery(params.slug);
 
   return (
-    <div className="px-5 sm:px-3 py-20 max-w-5xl mx-auto min-h-screen space-y-12">
+    <div className="px-5 sm:px-3 py-20 max-w-5xl mx-auto min-h-screen space-y-8">
       <h1>{gallery.title}</h1>
       {gallery && (
         <>
