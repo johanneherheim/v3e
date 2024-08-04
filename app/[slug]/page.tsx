@@ -68,7 +68,7 @@ export default async function Page({ params }: Props) {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-10">
           {page &&
             page.slug === "galleri" &&
-            races.map((race) => <GalleryPreview name={race} />)}
+            races.map((race) => <GalleryPreview name={race} key={race} />)}
         </div>
       </div>
     </div>
