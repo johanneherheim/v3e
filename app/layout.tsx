@@ -22,10 +22,10 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-title" content="Voss 3-etappars" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        {/* <meta
+        <meta
           name="apple-mobile-web-app-status-bar-style"
           content="black-translusent"
-        /> */}
+        />
         <meta
           name="description"
           content="🚴 Sykkelritt på Voss, arrangert av Vossevangen CK"
