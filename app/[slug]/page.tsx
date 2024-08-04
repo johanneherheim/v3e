@@ -1,18 +1,55 @@
 import { Markdown } from "@/components/markdown";
-import { getGalleries, getPage } from "@/sanity/sanity-utils";
 import Image from "next/image";
 import { type Page } from "@/types/Page";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import DownloadLink from "@/components/downloadLink";
+import { Gallery } from "@/types/Gallery";
+import { getPage } from "@/sanity/sanity-utils";
+import tempo from "@/components/images/tempo.jpeg";
+import fellesstart from "@/components/images/fellesstart.jpeg";
+import gateritt from "@/components/images/gateritt.jpeg";
 
 type Props = {
   params: { slug: string };
 };
 
+type GalleryPreviewProps = {
+  name: string;
+};
+
+const races = ["gateritt", "tempo", "fellesstart"];
+
+function GalleryPreview({ name }: GalleryPreviewProps) {
+  return (
+    <Link
+      href={`/galleri/${name}`}
+      className="p-5 bg-gray-100 rounded-lg space-y-5 text-center font-semibold group"
+    >
+      <Image
+        src={
+          name === "tempo"
+            ? tempo
+            : name === "fellesstart"
+            ? fellesstart
+            : gateritt
+        }
+        alt={""}
+        width={500}
+        height={500}
+        className="object-cover"
+      />
+      <div className="flex justify-center">
+        <p className="text-xl capitalize my-auto">{name}</p>
+        <span>
+          <ArrowRight className="h-full my-auto inline transition-transform group-hover:translate-x-2 mr-1" />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 export default async function Page({ params }: Props) {
   const page: Page | null = await getPage(params.slug);
-  const galleries = await getGalleries();
   return (
     <div className="px-3 py-20 max-w-5xl mx-auto min-h-screen">
       <h1 className="text-4xl font-semibold mb-5">{page?.title}</h1>
@@ -28,33 +65,11 @@ export default async function Page({ params }: Props) {
         </div>
       )}
       <div>
-        <ul className="space-y-5 mt-10">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-10">
           {page &&
-            page.slug == "galleri" &&
-            galleries.map((gallery) => (
-              <li key={gallery._id}>
-                <Link
-                  href={`/galleri/${gallery.slug}`}
-                  className="group flex transition-colors underline-offset-4 hover:underline font-medium duration-200"
-                >
-                  <p>{gallery.title}</p>
-                  <ArrowRight className="mx-1 scale-75 inline transition-transform group-hover:translate-x-2" />
-                </Link>
-              </li>
-            ))}
-        </ul>
-        {page &&
-          page.images &&
-          page.images.map((image) => (
-            <Image
-              key={image.asset._id}
-              src={image.asset.url}
-              alt={image.alt}
-              width={2000}
-              height={2000}
-              className="my-5"
-            />
-          ))}
+            page.slug === "galleri" &&
+            races.map((race) => <GalleryPreview name={race} />)}
+        </div>
       </div>
     </div>
   );
