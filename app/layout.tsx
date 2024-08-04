@@ -51,7 +51,6 @@ export default function RootLayout({
           type="image/<generated>"
           sizes="<generated>"
         />
-        <link rel="manifest" href="/manifest.json" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fcfcfc" />
         <link rel="apple-touch-icon" href="/img/icon.png" />
         <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png" />
