@@ -1,25 +1,19 @@
 import Image from "next/image";
 import picture from "@/components/images/framside.png";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function Home() {
   const viewportHeight = `calc(100vh - ${64}px)`;
   return (
     <div className="relative flex flex-col items-center justify-center h-2/3">
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full overflow-hidden">
         <Image
           src={picture}
           alt="loading image"
           style={{ height: viewportHeight, width: "100%" }}
-          className="object-cover"
+          className="object-cover object-left md:object-center"
           priority
         />
-        {/* <div className="absolute inset-0">
-          <div className="absolute bottom-0 right-0 p-4 text-muted">
-            <p>Foto: Bjørn Sandnes</p>
-          </div>
-        </div> */}
       </div>
       <div className="absolute top-24 bg-white bg-opacity-70 p-4 sm:p-5 rounded">
         <h2 className="text-center">Velkommen til Voss 3-etappars</h2>
