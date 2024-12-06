@@ -16,9 +16,9 @@ export default function Home() {
         />
       </div>
       <div className="absolute top-24 bg-white bg-opacity-70 p-4 sm:p-5 rounded">
-        <h2 className="text-center">Velkommen til Voss 3-etappars</h2>
+        <h2 className="text-center">Voss 3-etappars, UnoX Norgescup</h2>
         <h1 className="antialiased leading-relaxed font-extrabold tracking-widest text-2xl sm:text-7xl text-center px-5">
-          3. – 4. august 2024
+          8. – 10. august 2024
         </h1>
       </div>
       {/* PÅMELDINGSKNAPP */}
