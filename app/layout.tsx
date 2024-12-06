@@ -1,22 +1,30 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
-import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
+import { getFooters, getFooter } from "@/sanity/sanity-utils";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Voss 3-etappars",
   description: "🚴 Sykkelritt på Voss, arrangert av Vossevangen CK",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const footers = await getFooters();
+  const footerData = await Promise.all(
+    footers.map(async (footer) => ({
+      title: footer.title,
+      content: (await getFooter(footer.slug)).content,
+    }))
+  );
+
   return (
     <html lang="en">
       <head>
@@ -65,7 +73,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
-        <Footer />
+        <Footer footers={footerData} />
       </body>
     </html>
   );
