@@ -3,11 +3,10 @@ import Image from "next/image";
 import { type Page } from "@/types/Page";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Gallery } from "@/types/Gallery";
 import { getPage } from "@/sanity/sanity-utils";
-import tempo from "@/components/images/tempo.jpeg";
-import fellesstart from "@/components/images/fellesstart.jpeg";
-import gateritt from "@/components/images/gateritt.jpeg";
+import tempo from "@/components/images/tempo-2024.jpeg";
+import fellesstart from "@/components/images/fellesstart-2024.jpeg";
+import gateritt from "@/components/images/gateritt-2024.jpeg";
 
 type Props = {
   params: { slug: string };
@@ -15,25 +14,30 @@ type Props = {
 
 type GalleryPreviewProps = {
   name: string;
+  slug: string;
 };
 
-const races = ["gateritt", "tempo", "fellesstart"];
+const races = [
+  { name: "Gateritt 2024", slug: "gateritt-2024" },
+  { name: "Tempo 2024", slug: "tempo-2024" },
+  { name: "Fellesstart 2024", slug: "fellesstart-2024" },
+];
 
-function GalleryPreview({ name }: GalleryPreviewProps) {
+function GalleryPreview({ name, slug }: GalleryPreviewProps) {
   return (
     <Link
-      href={`/galleri/${name}`}
+      href={`/galleri/${slug}`}
       className="p-5 bg-gray-100 rounded-lg space-y-5 text-center font-semibold group"
     >
       <Image
         src={
-          name === "tempo"
+          slug === "tempo-2024"
             ? tempo
-            : name === "fellesstart"
-            ? fellesstart
-            : gateritt
+            : slug === "gateritt-2024"
+            ? gateritt
+            : fellesstart
         }
-        alt={""}
+        alt={name}
         width={500}
         height={500}
         className="object-cover"
@@ -68,7 +72,13 @@ export default async function Page({ params }: Props) {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-10">
           {page &&
             page.slug === "galleri" &&
-            races.map((race) => <GalleryPreview name={race} key={race} />)}
+            races.map((race) => (
+              <GalleryPreview
+                name={race.name}
+                slug={race.slug}
+                key={race.name}
+              />
+            ))}
         </div>
       </div>
     </div>
