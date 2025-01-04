@@ -15,10 +15,10 @@ export default function Home() {
           priority
         />
       </div>
-      <div className="absolute top-24 bg-white w-full bg-opacity-70 p-4 sm:p-5 rounded">
+      <div className="absolute top-24 sm:top-16 bg-white bg-opacity-70 w-full sm:w-fit p-4 sm:p-5 rounded">
         <h1 className="text-center mb-0 ">Voss 3-etappars</h1>
         <h3 className="text-center mb-6">Uno-X Norgescup</h3>
-        <h1 className="font-extrabold tracking-wide text-2xl sm:text-5xl text-center">
+        <h1 className="font-extrabold tracking-wide text-2xl sm:text-5xl text-center px-8">
           8.–10. august 2025
         </h1>
       </div>
