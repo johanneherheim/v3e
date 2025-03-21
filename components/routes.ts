@@ -16,6 +16,10 @@ export const routes = [
     slug: "loyper",
   },
   {
+    name: "Overnatting",
+    slug: "overnatting",
+  },
+  {
     name: "Resultat",
     slug: "resultat",
   },
@@ -26,9 +30,5 @@ export const routes = [
   {
     name: "Trafikkinfo",
     slug: "trafikkinfo",
-  },
-  {
-    name: "Overnatting",
-    slug: "overnatting",
   },
 ];
