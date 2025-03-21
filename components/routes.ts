@@ -27,4 +27,8 @@ export const routes = [
     name: "Trafikkinfo",
     slug: "trafikkinfo",
   },
+  {
+    name: "Overnatting",
+    slug: "overnatting",
+  },
 ];
