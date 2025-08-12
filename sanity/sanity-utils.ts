@@ -79,7 +79,9 @@ export async function getGalleries(): Promise<Gallery[]> {
 
 export async function getGallery(slug: string): Promise<Gallery[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "gallery" && slug.current match "${slug}*"]{
+    groq`*[_type == "gallery" && slug.current match "${slug}*"]
+  | order(_createdAt asc)
+{
           _id,
           _createdAt,
           title,
