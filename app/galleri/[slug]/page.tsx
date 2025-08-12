@@ -16,12 +16,12 @@ type Image = {
 };
 
 export default async function Page({ params }: Props) {
-  const gallery = await getGallery(params.slug);
+  const galleries = await getGallery(params.slug);
 
   return (
     <div className="px-5 sm:px-3 py-20 max-w-5xl mx-auto min-h-screen space-y-8">
-      <h1>{gallery?.title}</h1>
-      {gallery && (
+      <h1>{galleries[0]?.title}</h1>
+      {galleries.map((gallery) => (
         <>
           {gallery.content ? (
             <Markdown content={gallery.content} />
@@ -35,7 +35,7 @@ export default async function Page({ params }: Props) {
             </div>
           )}
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-24">
               {gallery.images &&
                 gallery.images.map((image: Image) => (
                   <ImageComponent
@@ -47,7 +47,7 @@ export default async function Page({ params }: Props) {
             </div>
           </div>
         </>
-      )}
+      ))}
     </div>
   );
 }

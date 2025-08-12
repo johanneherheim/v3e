@@ -8,6 +8,8 @@ import tempo2024 from "@/components/images/tempo-2024.jpeg";
 import fellesstart2024 from "@/components/images/fellesstart-2024.jpeg";
 import gateritt2024 from "@/components/images/gateritt-2024.jpeg";
 import fellesstart2025 from "@/components/images/fellesstart-2025.jpg";
+import tempo2025 from "@/components/images/tempo-2025.jpg";
+import gateritt2025 from "@/components/images/gateritt-2025.jpg";
 
 type Props = {
   params: { slug: string };
@@ -19,14 +21,14 @@ type GalleryPreviewProps = {
 };
 
 const races2024 = [
-  { name: "Gateritt 2024", slug: "gateritt-2024" },
   { name: "Tempo 2024", slug: "tempo-2024" },
+  { name: "Gateritt 2024", slug: "gateritt-2024" },
   { name: "Fellesstart 2024", slug: "fellesstart-2024" },
 ];
 
 const races2025 = [
-  //{ name: "Gateritt 2025", slug: "gateritt-2025" },
-  //{ name: "Tempo 2025", slug: "tempo-2025" },
+  { name: "Tempo 2025", slug: "tempo-2025" },
+  { name: "Gateritt 2025", slug: "gateritt-2025" },
   { name: "Fellesstart 2025", slug: "fellesstart-2025" },
 ];
 
@@ -35,7 +37,8 @@ const raceImages: Record<string, any> = {
   "tempo-2024": tempo2024,
   "fellesstart-2024": fellesstart2024,
   "fellesstart-2025": fellesstart2025,
-  // her kan du legge til flere etter hvert som du har bilder
+  "tempo-2025": tempo2025,
+  "gateritt-2025": gateritt2025,
 };
 
 function GalleryPreview({ name, slug }: GalleryPreviewProps) {
@@ -90,17 +93,7 @@ export default async function Page({ params }: Props) {
                 key={race.name}
               />
             ))}
-          {/* fjern dette */}
-          <div className="p-5 bg-gray-100 rounded-lg flex justify-center items-center h-full my-auto">
-            <p className="text-lg font-semibold">
-              Bilete frå gateritt kjem her!
-            </p>
-          </div>
-          <div className="p-5 bg-gray-100 rounded-lg flex justify-center items-center h-full my-auto">
-            <p className="text-lg font-semibold">Bilete frå tempo kjem her!</p>
-          </div>
         </div>
-
         <hr className="my-8 border-t-2 border-gray-300" />
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-10">
