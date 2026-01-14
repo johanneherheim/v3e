@@ -19,7 +19,7 @@ export default function Home() {
         <h1 className="text-center mb-0 ">Voss 3-etappars</h1>
         <h3 className="text-center mb-6">Uno-X Norgescup</h3>
         <h1 className="font-extrabold tracking-wide text-2xl sm:text-5xl text-center px-8">
-          8.–10. august 2025
+          7.–9. august 2026
         </h1>
       </div>
       {/* PÅMELDINGSKNAPP */}
