@@ -8,7 +8,7 @@ export default function Live() {
 
         <div className="aspect-video w-full overflow-hidden rounded-xl bg-black shadow-2xl">
           <iframe
-            src="https://player.twitch.tv/?channel=vossevangenck&parent=v3e.no"
+            src="https://player.twitch.tv/?channel=vossevangenck&parent=www.v3e.no&parent=v3e.no"
             className="h-full w-full"
             allowFullScreen
             title="Voss 3-etappars: Fellesstart"
