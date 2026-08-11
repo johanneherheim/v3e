@@ -10,6 +10,9 @@ import gateritt2024 from "@/components/images/gateritt-2024.jpeg";
 import fellesstart2025 from "@/components/images/fellesstart-2025.jpg";
 import tempo2025 from "@/components/images/tempo-2025.jpg";
 import gateritt2025 from "@/components/images/gateritt-2025.jpg";
+import fellesstart2026 from "@/components/images/fellesstart-2026.jpg";
+import tempo2026 from "@/components/images/tempo-2026.jpg";
+import gateritt2026 from "@/components/images/gateritt-2026.jpg";
 
 type Props = {
   params: { slug: string };
@@ -32,6 +35,12 @@ const races2025 = [
   { name: "Fellesstart 2025", slug: "fellesstart-2025" },
 ];
 
+const races2026 = [
+  { name: "Tempo 2026", slug: "tempo-2026" },
+  { name: "Gateritt 2026", slug: "gateritt-2026" },
+  { name: "Fellesstart 2026", slug: "fellesstart-2026" },
+];
+
 const raceImages: Record<string, any> = {
   "gateritt-2024": gateritt2024,
   "tempo-2024": tempo2024,
@@ -39,6 +48,9 @@ const raceImages: Record<string, any> = {
   "fellesstart-2025": fellesstart2025,
   "tempo-2025": tempo2025,
   "gateritt-2025": gateritt2025,
+  "gateritt-2026": gateritt2026,
+  "tempo-2026": tempo2026,
+  "fellesstart-2026": fellesstart2026,
 };
 
 function GalleryPreview({ name, slug }: GalleryPreviewProps) {
@@ -83,6 +95,19 @@ export default async function Page({ params }: Props) {
         </div>
       )}
       <div>
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-10">
+          {page &&
+            page.slug === "galleri" &&
+            races2026.map((race) => (
+              <GalleryPreview
+                name={race.name}
+                slug={race.slug}
+                key={race.name}
+              />
+            ))}
+        </div>
+        <hr className="my-8 border-t-2 border-gray-300" />
+
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-10">
           {page &&
             page.slug === "galleri" &&

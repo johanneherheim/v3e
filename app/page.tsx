@@ -32,14 +32,14 @@ export default function Home() {
         Meld deg på her
       </Link> */}
       {/* LIVEKNAPP */}
-      <Link
+      {/* <Link
         href="/live"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute  sm:bottom-1/6 flex justify-center bg-blue-600 text-white rounded-lg py-5 px-10 text-xl font-semibold"
       >
         Sjå livesending her
-      </Link>
+      </Link> */}
     </div>
   );
 }
